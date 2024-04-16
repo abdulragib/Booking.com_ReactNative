@@ -195,6 +195,94 @@ const HomeScreen = () => {
               </Text>
             </Pressable>
           </View>
+
+          <Text
+            style={{ marginHorizontal: 20, fontSize: 17, fontWeight: "500" }}
+          >
+            Travel More spend less
+          </Text>
+
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            <Pressable
+              style={{
+                width: 200,
+                height: 150,
+                marginTop: 10,
+                backgroundColor: "#003580",
+                borderRadius: 10,
+                padding: 20,
+                marginHorizontal:20
+              }}
+            >
+              <Text
+                style={{
+                  color: "white",
+                  fontSize: 15,
+                  fontWeight: "bold",
+                  marginVertical: 7,
+                }}
+              >
+                Genius
+              </Text>
+              <Text style={{ color: "white", fontSize: 15, fontWeight: 500 }}>
+                You are at genius level one in our loyalty program
+              </Text>
+            </Pressable>
+
+            <Pressable
+              style={{
+                width: 200,
+                height: 150,
+                marginTop: 10,
+                
+                borderColor:"#E0E0E0",
+                borderWidth:2,
+                borderRadius: 10,
+                padding: 20,
+                marginHorizontal:10
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: 15,
+                  fontWeight: "bold",
+                  marginVertical: 7,
+                }}
+              >
+                15% Discounts
+              </Text>
+              <Text style={{  fontSize: 15, fontWeight: 500 }}>
+                Complete 5 stays to unlock level 2
+              </Text>
+            </Pressable>
+
+            <Pressable
+              style={{
+                width: 200,
+                height: 150,
+                marginTop: 10,
+                borderColor:"#E0E0E0",
+                borderWidth:2,
+                borderRadius: 10,
+                padding: 20,
+                marginHorizontal:20
+              }}
+            >
+              <Text
+                style={{
+                  
+                  fontSize: 15,
+                  fontWeight: "bold",
+                  marginVertical: 7,
+                }}
+              >
+                10% Discounts
+              </Text>
+              <Text style={{  fontSize: 15, fontWeight: 500 }}>
+                Enjoy Discounts at participating at properties worldwide
+              </Text>
+            </Pressable>
+          </ScrollView>
         </ScrollView>
       </View>
 
@@ -239,7 +327,7 @@ const HomeScreen = () => {
               style={{ flexDirection: "row", alignItems: "center", gap: 10 }}
             >
               <Pressable
-              onPress={()=>setRooms(Math.max(1,rooms-1))}
+                onPress={() => setRooms(Math.max(1, rooms - 1))}
                 style={{
                   width: 26,
                   height: 26,
@@ -272,7 +360,7 @@ const HomeScreen = () => {
                 </Text>
               </Pressable>
               <Pressable
-              onPress={()=>setRooms((c)=>c+1)}
+                onPress={() => setRooms((c) => c + 1)}
                 style={{
                   width: 26,
                   height: 26,
@@ -308,7 +396,7 @@ const HomeScreen = () => {
               style={{ flexDirection: "row", alignItems: "center", gap: 10 }}
             >
               <Pressable
-              onPress={()=>setAdults(Math.max(1,adults-1))}
+                onPress={() => setAdults(Math.max(1, adults - 1))}
                 style={{
                   width: 26,
                   height: 26,
@@ -341,7 +429,7 @@ const HomeScreen = () => {
                 </Text>
               </Pressable>
               <Pressable
-              onPress={()=>setAdults((c)=>c+1)}
+                onPress={() => setAdults((c) => c + 1)}
                 style={{
                   width: 26,
                   height: 26,
@@ -378,7 +466,7 @@ const HomeScreen = () => {
               style={{ flexDirection: "row", alignItems: "center", gap: 10 }}
             >
               <Pressable
-              onPress={()=>setChildren(Math.max(0,children-1))}
+                onPress={() => setChildren(Math.max(0, children - 1))}
                 style={{
                   width: 26,
                   height: 26,
@@ -411,7 +499,7 @@ const HomeScreen = () => {
                 </Text>
               </Pressable>
               <Pressable
-              onPress={()=>setChildren((c)=>c+1)}
+                onPress={() => setChildren((c) => c + 1)}
                 style={{
                   width: 26,
                   height: 26,
