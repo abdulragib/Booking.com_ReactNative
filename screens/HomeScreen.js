@@ -6,9 +6,10 @@ import {
   TextInput,
   View,
   Button,
+  Image,
 } from "react-native";
 import React, { useLayoutEffect, useState } from "react";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import Header from "../components/Header";
 import { Feather } from "@expo/vector-icons";
@@ -24,6 +25,7 @@ import {
 
 const HomeScreen = () => {
   const navigation = useNavigation();
+  const route=useRoute();
   const [selectedDates, setSelectedDates] = useState();
   const [rooms, setRooms] = useState(1);
   const [adults, setAdults] = useState(2);
@@ -70,6 +72,8 @@ const HomeScreen = () => {
     );
   };
 
+  console.log(route.params)
+
   return (
     <>
       <View>
@@ -85,6 +89,7 @@ const HomeScreen = () => {
           >
             {/* Destination */}
             <Pressable
+            onPress={()=>navigation.navigate('Search')}
               style={{
                 flexDirection: "row",
                 alignItems: "center",
@@ -98,7 +103,7 @@ const HomeScreen = () => {
               <Feather name="search" size={24} color="black" />
               <TextInput
                 placeholderTextColor="black"
-                placeholder="Enter you Destination"
+                placeholder={route?.params ? route.params.input : "Enter Your Destination"}
               />
             </Pressable>
 
@@ -147,7 +152,7 @@ const HomeScreen = () => {
                 }
                 centerAlign
                 allowFontScaling={false}
-                placeholder={"Apr 27, 2018 → Jul 10, 2018"}
+                placeholder={"Select Your Dates"}
                 mode={"range"}
               />
             </Pressable>
@@ -211,7 +216,7 @@ const HomeScreen = () => {
                 backgroundColor: "#003580",
                 borderRadius: 10,
                 padding: 20,
-                marginHorizontal:20
+                marginHorizontal: 20,
               }}
             >
               <Text
@@ -234,12 +239,12 @@ const HomeScreen = () => {
                 width: 200,
                 height: 150,
                 marginTop: 10,
-                
-                borderColor:"#E0E0E0",
-                borderWidth:2,
+
+                borderColor: "#E0E0E0",
+                borderWidth: 2,
                 borderRadius: 10,
                 padding: 20,
-                marginHorizontal:10
+                marginHorizontal: 10,
               }}
             >
               <Text
@@ -251,7 +256,7 @@ const HomeScreen = () => {
               >
                 15% Discounts
               </Text>
-              <Text style={{  fontSize: 15, fontWeight: 500 }}>
+              <Text style={{ fontSize: 15, fontWeight: 500 }}>
                 Complete 5 stays to unlock level 2
               </Text>
             </Pressable>
@@ -261,16 +266,15 @@ const HomeScreen = () => {
                 width: 200,
                 height: 150,
                 marginTop: 10,
-                borderColor:"#E0E0E0",
-                borderWidth:2,
+                borderColor: "#E0E0E0",
+                borderWidth: 2,
                 borderRadius: 10,
                 padding: 20,
-                marginHorizontal:20
+                marginHorizontal: 20,
               }}
             >
               <Text
                 style={{
-                  
                   fontSize: 15,
                   fontWeight: "bold",
                   marginVertical: 7,
@@ -278,11 +282,26 @@ const HomeScreen = () => {
               >
                 10% Discounts
               </Text>
-              <Text style={{  fontSize: 15, fontWeight: 500 }}>
+              <Text style={{ fontSize: 15, fontWeight: 500 }}>
                 Enjoy Discounts at participating at properties worldwide
               </Text>
             </Pressable>
           </ScrollView>
+
+          <Pressable
+            style={{
+              marginTop: 40,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Image
+              style={{ width: 200, height: 50, resizeMode: "contain" }}
+              source={{
+                uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Booking.com_Logo.svg/2560px-Booking.com_Logo.svg.png",
+              }}
+            />
+          </Pressable>
         </ScrollView>
       </View>
 
