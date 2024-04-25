@@ -76,25 +76,30 @@ const HomeScreen = () => {
   console.log(route.params);
 
   const searchPlaces = (place) => {
-    if(!route.params || !selectedDates)
-    {
-      Alert.alert('Invalid Details', 'Please enter all the details', [
-        {
-          text: 'Cancel',
-          onPress: () => console.log('Cancel Pressed'),
-          style: 'cancel',
-        },
-        {text: 'OK', onPress: () => console.log('OK Pressed')},
-      ], {cancelable:false});
+    if (!route.params || !selectedDates) {
+      Alert.alert(
+        "Invalid Details",
+        "Please enter all the details",
+        [
+          {
+            text: "Cancel",
+            onPress: () => console.log("Cancel Pressed"),
+            style: "cancel",
+          },
+          { text: "OK", onPress: () => console.log("OK Pressed") },
+        ],
+        { cancelable: false }
+      );
     }
 
-    if(route.params && selectedDates){
-      navigation.navigate("Places",{
-        rooms:rooms,
-        adults:adults,
-        selectedDates:selectedDates,
-        place:place
-      })
+    if (route.params && selectedDates) {
+      navigation.navigate("Places", {
+        rooms: rooms,
+        adults: adults,
+        children: children,
+        selectedDates: selectedDates,
+        place: place,
+      });
     }
   };
 
@@ -266,7 +271,6 @@ const HomeScreen = () => {
                 width: 200,
                 height: 150,
                 marginTop: 10,
-
                 borderColor: "#E0E0E0",
                 borderWidth: 2,
                 borderRadius: 10,

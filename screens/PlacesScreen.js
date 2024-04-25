@@ -498,6 +498,7 @@ const PlacesScreen = () => {
         borderBottomColor: "transparent",
         shadowColor: "transparent",
       },
+      headerBackTitle: "Back",
     });
   }, []);
 
