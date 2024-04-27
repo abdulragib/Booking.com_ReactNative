@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./screens/HomeScreen";
 import { AntDesign } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
@@ -9,13 +9,14 @@ import SavedScreen from "./screens/SavedScreen";
 import BookingScreen from "./screens/BookingScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import { Ionicons } from "@expo/vector-icons";
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer } from "@react-navigation/native";
 import SearchScreen from "./screens/SearchScreen";
 import PlacesScreen from "./screens/PlacesScreen";
 import MapScreen from "./screens/MapScreen";
 import PropertyInfoScreen from "./screens/PropertyInfoScreen";
 import RoomsScreen from "./screens/RoomsScreen";
 import UserScreen from "./screens/UserScreen";
+import ConfirmationScreen from "./screens/ConfirmationScreen";
 
 const StackNavigator = () => {
   const Tab = createBottomTabNavigator();
@@ -93,13 +94,26 @@ const StackNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Main" component={BottomTabs} options={{headerShown:false}}/>
-        <Stack.Screen name="Search" component={SearchScreen} options={{headerShown:false}}/>
+        <Stack.Screen
+          name="Main"
+          component={BottomTabs}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Search"
+          component={SearchScreen}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen name="Places" component={PlacesScreen} />
-        <Stack.Screen name="Map" component={MapScreen} options={{headerShown:false}}/>
-        <Stack.Screen name="Info" component={PropertyInfoScreen}/>
-        <Stack.Screen name="Rooms" component={RoomsScreen}/>
-        <Stack.Screen name="User"  component={UserScreen}/>
+        <Stack.Screen
+          name="Map"
+          component={MapScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen name="Info" component={PropertyInfoScreen} />
+        <Stack.Screen name="Rooms" component={RoomsScreen} />
+        <Stack.Screen name="User" component={UserScreen} />
+        <Stack.Screen name="Confirmation" component={ConfirmationScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
