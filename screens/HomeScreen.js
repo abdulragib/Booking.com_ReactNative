@@ -73,8 +73,6 @@ const HomeScreen = () => {
     );
   };
 
-  console.log(route.params);
-
   const searchPlaces = (place) => {
     if (!route.params || !selectedDates) {
       Alert.alert(

@@ -26,7 +26,6 @@ const RoomsScreen = () => {
     });
   }, []);
   const [selected, setSelected] = useState([]);
-  console.log(route.params);
   return (
     <>
       <ScrollView>

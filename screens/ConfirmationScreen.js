@@ -1,7 +1,9 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View , SafeAreaView} from "react-native";
 import React, { useLayoutEffect } from "react";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { MaterialIcons } from "@expo/vector-icons";
+import { useDispatch } from "react-redux";
+import { savedPlaces } from "../SavedReducer";
 
 const ConfirmationScreen = () => {
   const route = useRoute();
@@ -26,6 +28,15 @@ const ConfirmationScreen = () => {
       headerBackTitle: "Back",
     });
   }, []);
+
+  const dispatch = useDispatch();
+  const confirmBooking = () => {
+    dispatch(savedPlaces(route.params));
+    navigation.replace("Main");
+  };
+
+  console.log(route.params)
+
   return (
     <View>
       <Pressable style={{ backgroundColor: "white", margin: 10 }}>
@@ -125,16 +136,24 @@ const ConfirmationScreen = () => {
         </View>
 
         <Pressable
+          onPress={confirmBooking}
           style={{
             backgroundColor: "#003580",
             width: 120,
             padding: 5,
             marginHorizontal: 12,
             marginBottom: 20,
-            borderRadius:4
+            borderRadius: 4,
           }}
         >
-          <Text style={{ fontSize: 15, fontWeight: "bold",textAlign:"center",color:"white"  }}>
+          <Text
+            style={{
+              fontSize: 15,
+              fontWeight: "bold",
+              textAlign: "center",
+              color: "white",
+            }}
+          >
             Book Now
           </Text>
         </Pressable>

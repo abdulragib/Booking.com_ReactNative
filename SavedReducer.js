@@ -7,7 +7,7 @@ export const SavedSlice = createSlice({
     },
     reducers:{
       savedPlaces:(state,action)=>{
-         state.bookings.push(...action.payload);
+         state.booking.push({...action.payload});
       }
     },
 });
