@@ -5,6 +5,7 @@ import { ModalPortal } from "react-native-modals";
 import store from "./store";
 import { Provider } from "react-redux";
 
+
 export default function App() {
   return (
     <>

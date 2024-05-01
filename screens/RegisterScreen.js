@@ -10,22 +10,22 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword  } from "firebase/auth";
 import { auth, db } from "../firebase";
-import { setDoc, doc } from "firebase/firestore";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { doc, setDoc } from "firebase/firestore";
 
 const RegisterScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const navigation = useNavigation();
-  
-  const register = () => {
-    if (email === "" || password === "" || phone === "") {
+
+  const register = async () => {
+    // Validate input
+    if (!email === "" || !password === "" || !phone === "") {
       Alert.alert(
-        "Invalid Detials",
-        "Please enter all the credentials",
+        "Invalid Details",
+        "Please enter all the credentials.",
         [
           {
             text: "Cancel",
@@ -36,19 +36,35 @@ const RegisterScreen = () => {
         ],
         { cancelable: false }
       );
+     
     }
-    createUserWithEmailAndPassword(auth, email, password).then(
-      (userCredentials) => {
-        const user = userCredentials._tokenResponse.email;
-        const uid = auth.currentUser.uid;
 
-        setDoc(doc(db, "users", `${uid}`), {
-          email: user,
-          phone: phone,
-        });
-      }
-    );
+    try {
+      // Register user
+      const userCredential = await createUserWithEmailAndPassword (
+        auth,
+        email,
+        password
+      );
+      console.log(userCredential.user);
+      const user = userCredential.user;
+      const uid = user.uid;
+
+      // Save user data to Firestore
+      await setDoc(doc(db, "users", `${uid}`), {
+        email: user.email,
+        phone: phone,
+      });
+
+      // Navigate to success screen or perform any other actions
+      console.log("User registered successfully:", user);
+    } catch (error) {
+      // Handle registration error
+      console.error("Registration error:", error.message);
+      Alert.alert("Registration Failed", error.message);
+    }
   };
+
   return (
     <SafeAreaView
       style={{
