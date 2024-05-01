@@ -11,16 +11,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "plugins": [
-      [
-        "expo-build-properties",
-        {
-          "android": {
-            "enableProguardInReleaseBuilds": true
-          }
-        }
-      ]
-    ],
+    
     "assetBundlePatterns": [
       "**/*"
     ],
@@ -32,7 +23,8 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.abdulragib.bookingproject"
+      "package": "com.abdulragib.bookingproject",
+      "enableProguardInReleaseBuilds": true
     },
     "web": {
       "favicon": "./assets/favicon.png"
