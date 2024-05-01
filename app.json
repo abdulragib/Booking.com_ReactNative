@@ -23,8 +23,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.abdulragib.bookingproject",
-      "enableProguardInReleaseBuilds": true
+      "package": "com.abdulragib.bookingproject"
     },
     "web": {
       "favicon": "./assets/favicon.png"
